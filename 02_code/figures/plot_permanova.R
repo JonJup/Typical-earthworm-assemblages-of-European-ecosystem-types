@@ -20,7 +20,7 @@ for (i in 1:4){
 rm(counter, i);gc()
 
 res.dat <- data.table(
-        typology_system = rep(c("HLZ CLC", "HLZ EUNIS", "BGR CLC", "BGR EUNIS"), each = 2), 
+        typology_system = rep(c("HLZ-CLC", "HLZ-EUNIS", "BGR-CLC", "BGR-EUNIS"), each = 2), 
         sub_system      = c("HLZ", "CLC", "HLZ", "EUNIS", "BGR", "CLC", "BGR", "EUNIS"), 
         r2              = res.c
 )
@@ -64,5 +64,5 @@ ggplot(res.dat,
         ylab(parse(text="PERMANOVA~~R^{2}"))
         
 # save to file ----------------------------------------------------------------------
-ggsave("03_figures/PERMANOVA.png")
+ggsave("03_figures/PERMANOVA.png", width = 150, height = 100, units = "mm")
 

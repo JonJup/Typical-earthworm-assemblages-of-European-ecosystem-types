@@ -7,7 +7,7 @@
 pacman::p_load(sf, dplyr, data.table, magrittr,spatstat)
 
 # load data -------------------------------------------------------------------------
-habitats <- readRDS("01_data/helper/10_habitat_reference_points.rds")
+habitats <- readRDS("01_data/helper/100_habitat_reference_points.rds")
 samples  <- readRDS("01_data/08_full_data_intersected_classifications.rds")
 
 # prepare samples -------------------------------------------------------------------
@@ -15,31 +15,26 @@ samples  <- readRDS("01_data/08_full_data_intersected_classifications.rds")
 # - Remove all thinning types with less than 10 samples and reassign ID. 
 samples %<>%
         unique(by = "site_id") %>%
-        group_by(clc, hlz, bgr, eunis_habitat) %>%
+        group_by(bgr, eunis_habitat) %>%
         mutate(habitat_id := cur_group_id()) %>% 
         group_by(habitat_id) %>% 
-        add_count(name = "nn")
-       #filter(nn >= 10) %>%
-        #group_by(clc, hlz, bgr, eunis_habitat) %>%
-        #mutate(habitat_id := cur_group_id())
+        add_count(name = "nn") %>% 
+        ungroup()
 
 #- subset habitats to remaining combinations 
 remaining_combinations <- 
         samples %>%
-        select(hlz, clc, bgr, eunis_habitat) %>%
-        unique(by = c("hlz", "clc", "bgr", "eunis_habitat")) %>%
-        mutate(combo = paste(hlz, clc, bgr, eunis_habitat, sep="_"))
+        select(bgr, eunis_habitat) %>%
+        unique(by = c("bgr", "eunis_habitat")) %>%
+        mutate(combo = paste(bgr, eunis_habitat, sep="_"))
 
 # - Add the same variable to the habitats data. 
-habitats %<>% mutate(combo = paste(hlz, clc, bgr, eunis, sep = "_"))
-
+habitats %<>% 
+        mutate(combo = paste(bgr, eunis, sep = "_")) %>% 
 # - subset habitat data to those types that occur in samples
-habitats %<>% filter(combo %in% remaining_combinations$combo)
+        filter(combo %in% remaining_combinations$combo)
 rm(remaining_combinations)
 rm(samples)
-# - check on a map
-#mapview::mapview(habitats2)
-
 # evaluate dispersal ----------------------------------------------------------------
 
 # - Create empty table to hold results of loop
@@ -89,15 +84,17 @@ split <-
 # - to each row of out.dt 
 for (i in 1:length(split)){
         
-        out.dt$hlz[i]   <- split[[i]][1]
-        out.dt$clc[i]   <- split[[i]][2]
-        out.dt$bgr[i]   <- split[[i]][3]
-        out.dt$eunis[i] <- split[[i]][4]
+        out.dt$bgr[i]   <- split[[i]][1]
+        out.dt$eunis[i] <- split[[i]][2]
         rm(i)
 }
 rm(split)
 
 # save to file ----------------------------------------------------------------------
+x <- 
+        rstudioapi::getActiveDocumentContext()[2]$path %>%
+        stringr::str_remove(".*02_code")%>%
+        readr::parse_number()
 
-saveRDS(out.dt, "01_data/helper/101_habitat_evaluations.rds")
+saveRDS(out.dt, paste0("01_data/helper/",x,"_habitat_evaluations.rds"))
 rm(list = ls());gc()

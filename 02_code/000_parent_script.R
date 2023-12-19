@@ -19,7 +19,7 @@ source("02_code/120_enviro-spatial-thinning.R")
 source("02_code/130_recheck_for_rare_types.R")
 source("02_code/140_permanova.R")
 source("02_code/150_determine_typical_assembalges.R")
-source("02_code/180_turnover_between_TA.R")
+source("02_code/160_turnover_between_TA.R")
 
 
 # figures ---------------------------------------------------------------------------

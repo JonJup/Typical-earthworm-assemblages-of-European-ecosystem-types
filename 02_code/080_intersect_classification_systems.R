@@ -13,10 +13,18 @@ pacman::p_load(
 data <- readRDS("01_data/07_full_data_no_poor.rds")
 
 # intersect_classifications ---------------------------------------------------------
+data[eunis_habitat == "Regularly or recently cultivated agricultural, horticultural and domestic habitats", 
+     eunis_habitat := "Cultivated"]
+data[eunis_habitat == "Grasslands and lands dominated by forbs, mosses or lichens", 
+     eunis_habitat := "Grasslands"]
+data[eunis_habitat == "Woodland, forest and other wooded land", 
+     eunis_habitat := "Forest"]
+
+
 data[, hlz_clc   := paste(hlz, clc,        sep="_")]
-data[, hlz_eunis := paste(hlz, eunis_code, sep="_")]
+data[, hlz_eunis := paste(hlz, eunis_habitat, sep="_")]
 data[, bgr_clc   := paste(bgr, clc,        sep="_")]
-data[, bgr_eunis := paste(bgr, eunis_code, sep="_")]
+data[, bgr_eunis := paste(bgr, eunis_habitat, sep="_")]
 
 # drop rare types -------------------------------------------------------------------
 

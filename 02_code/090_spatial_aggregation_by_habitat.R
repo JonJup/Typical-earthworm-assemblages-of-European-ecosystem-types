@@ -3,31 +3,43 @@
 # ———————————————————————————————————————————————————————— #
 
 # setup -----------------------------------------------------------------------------
-pacman::p_load(data.table, fields, magrittr, mapview, dplyr, vegan, spatstat, sf)
+pacman::p_load(data.table, 
+               dplyr,
+               fields, 
+               magrittr, 
+               mapview, 
+               sf,
+               spatstat, 
+               vegan)
 
 # load data -------------------------------------------------------------------------
 data <- readRDS("01_data/08_full_data_intersected_classifications.rds") 
 
 # prepare ---------------------------------------------------------------------------
-sites <- unique(data, by="site_id")
-sites[,habitat_id := .GRP, by = c("hlz", "bgr", "clc", "eunis_habitat")]
-sites[, habitat_count := .N, by = "habitat_id"]
-#table(sites$habitat_count)
-#sites <- sites[habitat_count >= 10]
 
-# - assign habitat_id again to have a continuous numbering. As we removed some of the 
-# - types in the previous steps this is not the case anymore. 
-sites[,habitat_id := .GRP, by = c("clc", "hlz", "bgr", "eunis_habitat")]
+# - rename EUNIS habitats for better legibility
+data[eunis_habitat == "Regularly or recently cultivated agricultural, horticultural and domestic habitats", 
+     eunis_habitat := "Cultivated"]
+data[eunis_habitat == "Grasslands and lands dominated by forbs, mosses or lichens", 
+     eunis_habitat := "Grasslands"]
+data[eunis_habitat == "Woodland, forest and other wooded land", 
+     eunis_habitat := "Forest"]
+
+# - data set with one row per sites
+sites <- unique(data, by="site_id")
+# - add habitat_id variable. numerical representation of each combination of Biogeographic 
+# - Regions and EUNIS habitat type
+sites[, habitat_id := .GRP, by = c("bgr", "eunis_habitat")]
+# - count the number of sites per type
+sites[, .N, by = "habitat_id"]
 
 # - Create a vector with all the distances for which the K statistics will be evaluated.
 distance <- seq(from=10, to=150, by = 10)
 # - Prepare a data table that will store the results of the for-loop.
 out.dt <- unique(sites, by = "habitat_id")
-out.dt <- data.table(distance = rep(distance, each=uniqueN(sites$habitat_id)),
+out.dt <- data.table(distance   = rep(distance, each=uniqueN(sites$habitat_id)),
                      habitat_id = 1:uniqueN(sites$habitat_id),
                      bgr        = out.dt$bgr,
-                     hlz        = out.dt$hlz,
-                     clc        = out.dt$clc,
                      eunis      = out.dt$eunis_habitat,
                      K_diff = 0)
 
@@ -45,13 +57,6 @@ for (i in seq_along(distance)){
         for (j in 1:max(sites$habitat_id)) {
                 # - Subset to sites with the focal eunis_id 
                 j.sub <- sites[habitat_id == j, ]
-                if(nrow(j.sub) == 1){
-                        j.sub$cluster <- 1
-                        i.hold_j %<>% rbind(j.sub)
-                        rm(list = ls()[grepl(pattern = "^j\\.", x = ls())])
-                        rm("j")
-                        next()
-                } 
                 # - computes a matrix of pairwise great circle distances,
                 # - convert to distance matrix of class "dist",
                 # - and compute a single linkage hierarchical clustering based on that 
@@ -69,11 +74,6 @@ for (i in seq_along(distance)){
                 rm(list = ls()[grepl(pattern = "^j\\.", x = ls())])
                 rm("j")
         }
-        i.hold_j[, n_cluster := uniqueN(cluster), by = "habitat_id"]
-        i.skip_types <- i.hold_j[n_cluster < 10] %>% unique(by = "habitat_id") %>% pull(habitat_id)
-        i.hold_j[, n_cluster := NULL]
-        
-        
         # - Each cluster number was given multiple times, i.e., once per eunis_id. 
         # - In this step, we sort this out. 
         # - We create an objekt for each unique combination of eunis_id and cluster.
@@ -90,10 +90,8 @@ for (i in seq_along(distance)){
         i.hold_j[, cluster_count := .N, by = cluster_id]
         
         # - Next we aim to find the most typical observation in each cluster. 
-        
         # - For all clusters with only one site, the solution must be that site. 
-        i.singeltons <- i.hold_j[cluster_count == 1 & ! habitat_id %in% i.skip_types]
-        i.rare_types <- i.hold_j[habitat_id %in% i.skip_types]
+        i.singeltons <- i.hold_j[cluster_count == 1]
         
         # - For all clusters with two sites, a random site is chosen, since both are 
         # - equally far away from they joined centroid. 
@@ -105,35 +103,24 @@ for (i in seq_along(distance)){
                 i.random_point_for_two <- i.random_point_for_two[i.rand_v, ]   
         }
         
-        
-        if (nrow(i.singeltons) != 0 & nrow(i.random_point_for_two) != 0 & nrow(i.rare_types) != 0){
+        if (nrow(i.singeltons) != 0 & nrow(i.random_point_for_two) != 0){
                 
-                i.manual <- rbind(i.singeltons, i.random_point_for_two, i.rare_types)
+                i.manual <- rbind(i.singeltons, i.random_point_for_two)
                 
-        } else if (nrow(i.singeltons) != 0 & nrow(i.random_point_for_two) != 0 & nrow(i.rare_types) == 0){
+        } else if (nrow(i.singeltons) != 0 & nrow(i.random_point_for_two) == 0){
                 
-                i.manual <- rbind(i.singeltons, i.random_point_for_two)      
+                i.manual <- rbind(i.singeltons)
                 
-        } else if (nrow(i.singeltons) != 0 & nrow(i.random_point_for_two) == 0 & nrow(i.rare_types) != 0){
-                
-                i.manual <- rbind(i.singeltons, i.rare_types)
-                
-        } else if (nrow(i.singeltons) == 0 & nrow(i.random_point_for_two) != 0 & nrow(i.rare_types) != 0){
-                
-                i.manual <- rbind(i.random_point_for_two, i.rare_types)
-                
-        } else if (nrow(i.singeltons) == 0 & nrow(i.random_point_for_two) != 0 & nrow(i.rare_types) == 0){
+        } else if (nrow(i.singeltons) == 0 & nrow(i.random_point_for_two) != 0){
                 
                 i.manual <- rbind(i.random_point_for_two)
                 
-        } else if (nrow(i.singeltons) == 0 & nrow(i.random_point_for_two) == 0 & nrow(i.rare_types) == 0){
+        }  else if (nrow(i.singeltons) == 0 & nrow(i.random_point_for_two) == 0 & nrow(i.rare_types) == 0){
                 
                 i.manual <- data.table()
                 
-        } else if (nrow(i.singeltons) == 0 & nrow(i.random_point_for_two) == 0 & nrow(i.rare_types) != 0){
-                i.manual <- i.rare_types
         }
-
+        
         # - For cases with three or more observatios we compute the multivariate centroid,
         # - with the vegan::betadisper() function
         
@@ -185,12 +172,12 @@ for (i in seq_along(distance)){
                 
                 k.disper <- 
                         sites %>%
-                                dplyr::filter(site_id %in% i.disper$site_id & 
-                                                      habitat_id == k) %>%
-                                st_as_sf(coords = c("lon", "lat"), crs = "EPSG:4326") %>%
-                                st_transform(crs = "EPSG:3035") %>%
-                                select(geometry) %>%
-                                as.ppp()
+                        dplyr::filter(site_id %in% i.disper$site_id & 
+                                              habitat_id == k) %>%
+                        st_as_sf(coords = c("lon", "lat"), crs = "EPSG:4326") %>%
+                        st_transform(crs = "EPSG:3035") %>%
+                        select(geometry) %>%
+                        as.ppp()
                 if (k.disper[[2]]>2) {
                         k.k <- Kest(k.disper, correction = "isotropic")
                         k.distance <- sum(k.k$iso) - sum(k.k$theo)
@@ -205,6 +192,8 @@ for (i in seq_along(distance)){
         print(i)
         rm(i)
 }
+
+
 saveRDS(out.dt, "01_data/09_k_statistic.rds")
 rm(list = ls())
 gc()

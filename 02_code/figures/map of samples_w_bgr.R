@@ -13,35 +13,31 @@ countries2 <- x <- aggregate(countries,
                              FUN = mean)
 countries2 <- st_crop(countries2, sites)
 
-#- no basemap covers the high latitutdes reached by some of the data 
-# basemap.tile <-
-#         get_tiles(
-#                 x = countries2,
-#                 provider = "Esri.WorldTerrain",
-#                 zoom = 4, crop = TRUE)
+#- no basemap covers the high latitutdes reached by some of the data
+basemap.tile <-
+        get_tiles(
+                x = countries2,
+                provider = "Esri.WorldTerrain",
+                zoom = 4, crop = TRUE)
 
 bgr2 <- st_crop(bgr, countries2)
 bgr2 <- mutate(bgr2, 'Biogeographic Region' = short_name)
 map <- 
-        # tm_shape(basemap.tile) +
-        # tm_rgb() +
+        tm_shape(basemap.tile) +
+        tm_rgb() +
         tm_shape(bgr2) +
                 tm_fill(col="Biogeographic Region") +
         tm_shape(countries2) +
                 tm_borders(lwd=1.5) +
         tm_shape(sites) +
-                tm_bubbles(size = .2, col = "orange", border.col = "black",border.lwd = 1) + 
-                tm_compass(type = "4star",
-                           size = 2,
-                           position = c("left", "top"),
-                           text.color = "black",
-                           text.size = 1.3) +
-                tm_scale_bar(text.color = "black", 
-                             text.size = 2,
-                             position = c(0.23,.9)) + 
-                tm_layout(bg.color = "#c4ecea",
+                tm_bubbles(size = .2, 
+                           col = "orange", 
+                           border.col = "black",
+                           border.lwd = 1) + 
+                tm_layout(#bg.color = "#c4ecea",
                           legend.outside = T,
                           legend.title.size = 2)
+
 map
 
 tmap_save(map, filename = "03_figures/map_of_samles_bgr.png")

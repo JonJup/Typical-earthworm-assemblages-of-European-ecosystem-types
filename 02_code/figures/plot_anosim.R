@@ -8,7 +8,7 @@ data <- readRDS("01_data/14_anosim.rds")
 
 # prepare data ----------------------------------------------------------------------
 res.dat <- data.table(
-        typology_system = rep(c("HLZ CLC", "HLZ EUNIS", "BGR CLC", "BGR EUNIS"), each = 1), 
+        typology_system = rep(c("HLZ-CLC", "HLZ-EUNIS", "BGR-CLC", "BGR-EUNIS"), each = 1), 
         ANOSIM_R              = numeric(4),
         p.value               = numeric(4)
 )
@@ -16,7 +16,7 @@ for(i in 1:4){
         res.dat$ANOSIM_R[i] <- data[[i]]$statistic
         res.dat$p.value[i] <- data[[i]]$signif
 }
-
+res.dat
 
 # plot ------------------------------------------------------------------------------
 ggplot(
@@ -46,4 +46,4 @@ ggplot(
 
 
 # save to file ----------------------------------------------------------------------
-ggsave("03_figures/anosim.png")
+ggsave("03_figures/anosim.png", width = 150, height = 100, units = "mm")

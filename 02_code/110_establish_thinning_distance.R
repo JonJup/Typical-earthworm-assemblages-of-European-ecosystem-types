@@ -16,24 +16,14 @@ ref  <- readRDS("01_data/helper/101_habitat_evaluations.rds")
 
 # prepare data ----------------------------------------------------------------------
 types <- unique(data, by = "habitat_id") %>% setorderv("habitat_id")
-types[, combo := paste(hlz, clc, bgr, eunis, sep ="_")]
-
-which(!types$combo %in% ref$combo)
-
-data[habitat_id %in% c(11,17,19,48), K_diff]
-
-data[habitat_id == 11]
-
-
-uniqueN(types$combo)
-uniqueN(ref$combo)
+types[, combo := paste(bgr, eunis, sep ="_")]
 
 # - subset reference data to thinning types in samples 
 ref <- ref[combo %in% types$combo]
 
 # - arrange the data according to the types so that thinning types are in the same order
-ref   %<>% arrange(hlz, bgr, clc, eunis)
-types %<>% arrange(hlz, bgr, clc, eunis)
+ref   %<>% arrange(bgr, eunis)
+types %<>% arrange(bgr, eunis)
 
 # - assign thinning types to habitat data and remove other columns
 ref %<>% 

@@ -5,10 +5,15 @@ library(magrittr)
 library(RCurl)
 library(data.table)
 # create driloBASE taxa list --------------------------------------------------------
-URL <- "http://taxo.drilobase.org/index.php?title=List_of_taxa/Lumbricidae"
+
+#URL <- "http://taxo.drilobase.org/index.php?title=List_of_taxa/Lumbricidae"
+#URL <- RCurl::getURL(URL)
+#saveRDS(URL, "01_data/helper/06_drillo_url.rds")
+
+URL <- readRDS("01_data/helper/06_drillo_url.rds")
 
 drilo_taxa <- 
-        RCurl::getURL(URL) %>%
+       URL %>%
         str_split("\\\n") %>% 
         {\(x) x[[1]][237:938]}() %>%
         lapply(str_remove_all, "\\(.*\\)") %>%
@@ -17,6 +22,7 @@ drilo_taxa <-
         lapply(str_remove_all, "<.*>") %>%
         lapply(str_trim) %>%
         unlist
+
 #- drop empty elements from list
 drilo_taxa <- drilo_taxa[-which(drilo_taxa == "")]
 rm(URL);gc()
@@ -59,5 +65,9 @@ if (any(!us %in% drilo_taxa)){
 # - recheck richness 
 data <- data[!is.na(species)]
 
-saveRDS(data, "01_data/06_full_data_taxa_checked.rds")
+# - make sure that each species only occurs once per sample
+data2 <- unique(data, by = c("site_id", "species"))
+
+saveRDS(data2, "01_data/06_full_data_taxa_checked.rds")
 rm(list=ls());gc()
+

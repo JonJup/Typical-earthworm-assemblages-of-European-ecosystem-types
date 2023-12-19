@@ -78,10 +78,10 @@ ad.b.c <- adonis2(data_dist ~ sites$bgr + sites$clc)
 ad.b.e <- adonis2(data_dist ~ sites$bgr + sites$eunis_code)
 
 # #- compute AIC 
-# ad.h.c.aic <- AICc.PERMANOVA2(ad.h.c)$AIC
-# ad.h.e.aic <- AICc.PERMANOVA2(ad.h.e)$AIC
-# ad.b.c.aic <- AICc.PERMANOVA2(ad.b.c)$AIC
-# ad.b.e.aic <- AICc.PERMANOVA2(ad.b.e)$AIC
+ad.h.c.aic <- AICc.PERMANOVA2(ad.h.c)$AIC
+ad.h.e.aic <- AICc.PERMANOVA2(ad.h.e)$AIC
+ad.b.c.aic <- AICc.PERMANOVA2(ad.b.c)$AIC
+ad.b.e.aic <- AICc.PERMANOVA2(ad.b.e)$AIC
 
 # run anosim ------------------------------------------------------------------------
 an.h.c <- anosim(x = data_dist, grouping = sites$hlz_clc)

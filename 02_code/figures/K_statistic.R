@@ -17,9 +17,9 @@ data.l <- list(copy(data),
 
 #--- add habitat ID to ref --#
 data.l[[3]] <- unique(data.l[[1]], by = "habitat_id")
-data.l %<>% lapply(function(x) x[, habitat := paste(bgr, hlz, clc, eunis)])
+data.l %<>% lapply(function(x) x[, habitat := paste(bgr, eunis)])
 data.l[[2]] %<>% (\(x) x[habitat %in% data.l[[3]]$habitat])()
-data.l %<>% lapply(arrange, hlz, bgr, clc, eunis)
+data.l %<>% lapply(arrange, bgr, eunis)
 data.l[[2]]$habitat_id <- data.l[[3]]$habitat_id
 
 #-- prepare for plotting --# 
@@ -39,23 +39,23 @@ data.l[[4]]$threshold2 <- 0.75 * data.l[[4]]$threshold
 data.l[[4]][threshold2 > K_diff | K_diff <= 0, below := TRUE]
 
 data.l[[4]][below == TRUE, mindist := min(distance), by = "habitat_id"]
-data.l[[4]] <- data.l[[4]][!habitat_id %in% c(25:27)]
+#data.l[[4]] <- data.l[[4]][!habitat_id %in% c(25:27)]
 
 #--- shorten EUNIS name for facet titles 
-data.l[[4]][, habitat := stringr::str_replace_all(habitat, "Forest Woodland, forest and other wooded land", "Forest")]
-data.l[[4]][, habitat := stringr::str_replace_all(habitat, "Grasslands and lands dominated by forbs, mosses or lichens", "Grassland")]
-data.l[[4]][, habitat := stringr::str_replace_all(habitat, "Regularly or recently cultivated agricultural, horticultural and domestic habitats", "Cultivated")]
-data.l[[4]][, habitat := stringr::str_replace_all(habitat, "Open Land", "Open")]
-data.l[[4]][, habitat := stringr::str_replace_all(habitat, "Woodland, forest and other wooded land", "Forest")]
-data.l[[4]][, habitat := stringr::str_replace_all(habitat, "cool temperate", "Cool")]
-data.l[[4]][, habitat := stringr::str_replace_all(habitat, "warm temperate", "Warm")]
-data.l[[2]][, habitat := stringr::str_replace_all(habitat, "Forest Woodland, forest and other wooded land", "Forest")]
-data.l[[2]][, habitat := stringr::str_replace_all(habitat, "Grasslands and lands dominated by forbs, mosses or lichens", "Grassland")]
-data.l[[2]][, habitat := stringr::str_replace_all(habitat, "Regularly or recently cultivated agricultural, horticultural and domestic habitats", "Cultivated")]
-data.l[[2]][, habitat := stringr::str_replace_all(habitat, "Open Land", "Open")]
-data.l[[2]][, habitat := stringr::str_replace_all(habitat, "Woodland, forest and other wooded land", "Forest")]
-data.l[[2]][, habitat := stringr::str_replace_all(habitat, "cool temperate", "Cool")]
-data.l[[2]][, habitat := stringr::str_replace_all(habitat, "warm temperate", "Warm")]
+# data.l[[4]][, habitat := stringr::str_replace_all(habitat, "Forest Woodland, forest and other wooded land", "Forest")]
+# data.l[[4]][, habitat := stringr::str_replace_all(habitat, "Grasslands and lands dominated by forbs, mosses or lichens", "Grassland")]
+# data.l[[4]][, habitat := stringr::str_replace_all(habitat, "Regularly or recently cultivated agricultural, horticultural and domestic habitats", "Cultivated")]
+# data.l[[4]][, habitat := stringr::str_replace_all(habitat, "Open Land", "Open")]
+# data.l[[4]][, habitat := stringr::str_replace_all(habitat, "Woodland, forest and other wooded land", "Forest")]
+# data.l[[4]][, habitat := stringr::str_replace_all(habitat, "cool temperate", "Cool")]
+# data.l[[4]][, habitat := stringr::str_replace_all(habitat, "warm temperate", "Warm")]
+# data.l[[2]][, habitat := stringr::str_replace_all(habitat, "Forest Woodland, forest and other wooded land", "Forest")]
+# data.l[[2]][, habitat := stringr::str_replace_all(habitat, "Grasslands and lands dominated by forbs, mosses or lichens", "Grassland")]
+# data.l[[2]][, habitat := stringr::str_replace_all(habitat, "Regularly or recently cultivated agricultural, horticultural and domestic habitats", "Cultivated")]
+# data.l[[2]][, habitat := stringr::str_replace_all(habitat, "Open Land", "Open")]
+# data.l[[2]][, habitat := stringr::str_replace_all(habitat, "Woodland, forest and other wooded land", "Forest")]
+# data.l[[2]][, habitat := stringr::str_replace_all(habitat, "cool temperate", "Cool")]
+# data.l[[2]][, habitat := stringr::str_replace_all(habitat, "warm temperate", "Warm")]
 
 data.l[[4]][, habitat := factor(habitat)]
 
@@ -70,7 +70,7 @@ data.l[[4]] %>%
         geom_hline(data = data.l[[2]][!habitat_id %in% c(25:27)], aes(yintercept = distance), col = "red") + 
         theme(legend.position ="none",
              strip.background = element_blank(),
-             strip.text.x = element_text(size=8),
+             strip.text.x = element_text(size=12),
              axis.title.y = element_text(size = 13),
              axis.title.x = element_text(size = 13),
              panel.grid = element_blank(), 
