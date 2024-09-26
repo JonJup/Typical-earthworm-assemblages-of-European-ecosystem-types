@@ -78,7 +78,7 @@ data.l[[4]] %>%
              
              ) +
         xlab("Minimal nearest neighbor distance [km]") + 
-        ylab(parse(text="K[samples]~~-~~K[CSR]"))
+        ylab(parse(text="K[assemblages]~~-~~K[CSR]"))
               # panel.background = element_blank(),
               #panel.grid.major.y = element_line(color="gray"))
 

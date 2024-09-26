@@ -1,0 +1,238 @@
+<mxfile host="app.diagrams.net" modified="2023-11-20T11:40:55.539Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0" etag="gKkHXGcLkcfKzp7M2r_a" version="22.1.3" type="device">
+  <diagram name="Seite-1" id="Vj4PTtajERcnKbdTUnPd">
+    <mxGraphModel dx="1912" dy="1032" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-1" target="HoVDrFk1jRS0_48LXqlh-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-1" value="&lt;div&gt;sWORM database&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry y="10" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-2" target="HoVDrFk1jRS0_48LXqlh-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-2" value="&lt;div&gt;edaphoBase&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry y="70" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-3" target="HoVDrFk1jRS0_48LXqlh-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-3" value="010_prepare_sworm_data.R" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="170" y="5" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-5" target="HoVDrFk1jRS0_48LXqlh-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.375;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-5" target="HoVDrFk1jRS0_48LXqlh-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-5" value="020_prepare_edaphobase.R" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="170" y="65" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-7" target="HoVDrFk1jRS0_48LXqlh-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-7" value="01_prepared_sworm.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="414" y="10" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-9" target="HoVDrFk1jRS0_48LXqlh-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-9" value="02_prepared_edapho.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="414" y="70" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.625;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-11" target="HoVDrFk1jRS0_48LXqlh-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="350" y="170" />
+              <mxPoint x="350" y="135" />
+              <mxPoint x="295" y="135" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-11" value="021_tu_table.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="210" y="150" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-14" target="HoVDrFk1jRS0_48LXqlh-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-14" value="030_combine_sworm_and_edaphobase.R" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="610" y="30" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-18" target="HoVDrFk1jRS0_48LXqlh-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-18" value="03_full_data_incomplete.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="655" y="120" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-20" target="HoVDrFk1jRS0_48LXqlh-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-20" value="050_add_variables_to_combined_data.R" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="610" y="200" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-22" target="HoVDrFk1jRS0_48LXqlh-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1060" y="395" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1110" y="225" />
+              <mxPoint x="1110" y="340" />
+              <mxPoint x="1060" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-22" value="biogeographic regions" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="920" y="205" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-24">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1004.9999999999998" y="395" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-24" value="EUNIS Habitat" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="920" y="270" width="170" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-26" value="Biotemperature" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="920" y="100" width="170" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-29" target="HoVDrFk1jRS0_48LXqlh-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-29" target="HoVDrFk1jRS0_48LXqlh-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-29" value="&lt;div&gt;040_prepare_hlz&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="110" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-31" target="HoVDrFk1jRS0_48LXqlh-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-31" value="WorldClim 2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="920" y="45" width="170" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-33" target="HoVDrFk1jRS0_48LXqlh-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-33" value="05_full_data.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="360" y="230" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-35">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1115" y="415" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1005" y="190" />
+              <mxPoint x="1135" y="190" />
+              <mxPoint x="1135" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-35" value="Holdrige Life Zone" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="920" y="135" width="170" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-41" target="HoVDrFk1jRS0_48LXqlh-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-41" value="060_compare_against_drillo_base.R.R" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="225" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-43" target="HoVDrFk1jRS0_48LXqlh-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-43" value="06_full_data_taxa_checked.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="77.5" y="310" width="185" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-45" target="HoVDrFk1jRS0_48LXqlh-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-45" value="&lt;div&gt;070_drop_poor_communities&lt;/div&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="390" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-47" target="HoVDrFk1jRS0_48LXqlh-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-47" value="07_full_data_no_poor.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="360" y="395" width="185" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-49" target="HoVDrFk1jRS0_48LXqlh-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-49" value="080_spatial_aggregation_by_habitat.R" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="590" y="390" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-50" target="HoVDrFk1jRS0_48LXqlh-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-50" value="100_establish_thinning_distance.R" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="590" y="560" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-51" value="110_enviro-spatioal-thinning.R" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="240" y="650" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-52" target="HoVDrFk1jRS0_48LXqlh-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-52" value="k_statistic.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="627.5" y="470" width="185" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-53" target="HoVDrFk1jRS0_48LXqlh-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-53" value="10_thinning_distance_by_habitat.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="315" y="565" width="230" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.918;entryY=0.016;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-35" target="HoVDrFk1jRS0_48LXqlh-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.625;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-26" target="HoVDrFk1jRS0_48LXqlh-20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="120" />
+              <mxPoint x="840" y="180" />
+              <mxPoint x="773" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.922;entryY=1.01;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-24" target="HoVDrFk1jRS0_48LXqlh-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-73" target="HoVDrFk1jRS0_48LXqlh-76">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-73" value="090_habitat_reference_points.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="947.5" y="480" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-74" target="HoVDrFk1jRS0_48LXqlh-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-74" value="090_how_dispersed_are_habitat_types_create_data.R" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="875" y="390" width="365" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HoVDrFk1jRS0_48LXqlh-76" target="HoVDrFk1jRS0_48LXqlh-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-76" value="091_how_dispersed_are_habitat_types_evaluation.R" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="875" y="559.5" width="365" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-79" value="091_habitat_evaluations.rds" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="770" y="650" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HoVDrFk1jRS0_48LXqlh-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.471;entryY=1.072;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="770" y="666.4" as="sourcePoint" />
+            <mxPoint x="712.46" y="610" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="710" y="666.4" />
+              <mxPoint x="710" y="626.4" />
+              <mxPoint x="713" y="626.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

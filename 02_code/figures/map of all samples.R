@@ -1,7 +1,7 @@
 pacman::p_load(sf, data.table, tmap, maptiles, magrittr)
 
 
-data <- readRDS("01_data/13_no_rare_types.rds")
+data <- readRDS("01_data/05_full_data.rds")
 sites <- unique(data, by = "site_id")
 sites <- st_as_sf(sites, coords = c("lon", "lat"), crs= 4326)
 
@@ -19,14 +19,12 @@ basemap.tile <-
                 zoom = 4, crop = TRUE)
 
 (map <- 
-        tm_shape(basemap.tile) +
-        tm_rgb() +
-        tm_shape(countries2) +
-        tm_borders(lwd = 2, col = "black") +
-        tm_shape(sites) +
-        tm_bubbles(size = .2, col = "orange", border.col = "black",border.lwd = 1) + 
-        tm_compass(type = "4star", size = 2, position = c("left", "top"), text.color = "white", text.size = 1.3) + 
-        tm_scale_bar(text.color = "white", text.size = 2)  
+                tm_shape(basemap.tile) +
+                tm_rgb() +
+                tm_shape(countries2) +
+                tm_borders(lwd = 2, col = "black") +
+                tm_shape(sites) +
+                tm_bubbles(size = .2, col = "orange", border.col = "black",border.lwd = 1)
         #tm_layout(bg.color = "lightblue")
 )
-tmap_save(map, filename = "03_figures/map_of_samles.png")
+tmap_save(map, filename = "03_figures/map_of_all_samles.png")
